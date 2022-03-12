@@ -1,0 +1,35 @@
+:root {
+    --indent: 8px;
+    --navbar-height: 56px;
+    --container-gap: 16px;
+    --container-width: 992px;
+}
+
+@media (min-width: $media) {
+    :root {
+        --navbar-height: 64px;
+        --container-gap: 24px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hide {
+    display: none !important;
+}
+
+.hide-mobile {
+    @media (max-width: $media - 1) {
+        display: none !important;
+    }
+}
+
+.hide-desktop {
+    @media (min-width: $media) {
+        display: none !important;
+    }
+}
