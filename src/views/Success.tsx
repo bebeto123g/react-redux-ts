@@ -1,8 +1,7 @@
 import React from 'react';
-import Container from '../components/UI/Continer';
 
 const Success = () => {
-    return <Container>Success Page</Container>;
+    return <>Success Page</>;
 };
 
 export default Success;

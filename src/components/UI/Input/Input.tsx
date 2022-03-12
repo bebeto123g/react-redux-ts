@@ -7,19 +7,22 @@ import React, {
     useRef,
     useState,
 } from 'react';
+import styled from '@emotion/styled'
+import { InputStyles } from './inputStyles';
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
-    handler: FocusEventHandler<HTMLInputElement>
+export interface InputPropsType extends InputHTMLAttributes<HTMLInputElement> {
+    handler: FocusEventHandler<HTMLInputElement>;
+    error: boolean;
 }
 
-const Input: FC<Props> = ({ handler, value, ...props }) => {
+const Input: FC<InputPropsType> = ({ handler, value, error = false, ...props }) => {
     const [stateValue, setStateValue] = useState('');
 
     const inputEl = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         if (inputEl && stateValue !== value) {
-            { /* @ts-ignore */ }
+            {/* @ts-ignore */}
             inputEl.current.value = value;
         }
     }, [value, stateValue]);
@@ -39,11 +42,13 @@ const Input: FC<Props> = ({ handler, value, ...props }) => {
     };
 
     return (
-        <input
+        <InputStyles
             {...props}
             defaultValue={value}
             onBlur={checkChange}
             onKeyUp={pressEnter}
+            error={error}
+            name={props.id}
             ref={inputEl}
         />
     );

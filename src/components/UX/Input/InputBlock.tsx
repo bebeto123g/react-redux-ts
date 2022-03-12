@@ -1,4 +1,4 @@
-import React, { FC, FocusEvent, FocusEventHandler, InputHTMLAttributes } from 'react';
+import React, { FC, FocusEventHandler, InputHTMLAttributes } from 'react';
 import { css } from '@emotion/css';
 
 import Label from '../../UI/Input/Label';
@@ -11,17 +11,26 @@ interface InputBlockProps {
     textError?: string;
     id: string | number;
     inputProps: InputHTMLAttributes<HTMLInputElement>;
-    handler: FocusEventHandler<HTMLInputElement>
+    handler: FocusEventHandler<HTMLInputElement>;
 }
 
-const styles = css``;
+const styles = css(`
+    margin-bottom: 32px;
+`);
 
-const InputBlock: FC<InputBlockProps> = ({ handler, id, label, textError, error, inputProps = { type: 'text' } }) => {
+const InputBlock: FC<InputBlockProps> = ({
+    handler,
+    id,
+    label,
+    textError,
+    error,
+    inputProps = { type: 'text' },
+}) => {
     return (
         <div className={styles}>
             {label && <Label htmlFor={String(id)}>{label}</Label>}
             {error && <InputError>{textError}</InputError>}
-            <Input {...inputProps} handler={handler} id={String(id)} />
+            <Input {...inputProps} error={error} handler={handler} id={String(id)} />
         </div>
     );
 };
