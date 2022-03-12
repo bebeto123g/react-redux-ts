@@ -1,7 +1,7 @@
 import React, { FC, LabelHTMLAttributes } from 'react';
-import { css } from '@emotion/css';
+import styled from '@emotion/styled';
 
-const styles = css`
+export const LabelStyle = styled.label`
     font-family: 'Golos', -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
         'Droid Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
@@ -13,11 +13,7 @@ const styles = css`
 `;
 
 const Label: FC<LabelHTMLAttributes<HTMLLabelElement>> = ({ children, htmlFor = '' }) => {
-    return (
-        <label className={styles} htmlFor={htmlFor}>
-            {children}
-        </label>
-    );
+    return <LabelStyle htmlFor={htmlFor}>{children}</LabelStyle>;
 };
 
 export default Label;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import BlockTitle from '../components/UI/Typography/BlockTitle';
 import PageTitle from '../components/UI/Typography/PageTitle';
 import Paragraph from '../components/UI/Typography/Paragraph';
-import ReceptionForm from '../components/Form/ReceptionForm';
+import ReceptionForm from '../components/Form/ReceptionForm/ReceptionForm';
 
 const Home = () => {
     return (

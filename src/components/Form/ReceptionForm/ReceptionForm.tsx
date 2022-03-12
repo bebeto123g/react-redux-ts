@@ -1,6 +1,7 @@
 import React, { FocusEventHandler, FormEventHandler, useState } from 'react';
-import InputBlock from '../UX/Input/InputBlock';
-import { UserType } from '../../types';
+import InputBlock from '../../UX/Input/InputBlock';
+import { UserType } from '../../../types';
+import RadioList from '../../UI/Radio/RadioList';
 
 const initFormState = {
     name: '',
@@ -34,7 +35,7 @@ const ReceptionForm = () => {
         e.preventDefault();
 
         console.log(form);
-    }
+    };
 
     return (
         <form onSubmit={handlerFormSubmit}>
@@ -76,6 +77,8 @@ const ReceptionForm = () => {
                     value: form.phone,
                 }}
             />
+
+            <RadioList label="Заявление подаёт" />
         </form>
     );
 };
