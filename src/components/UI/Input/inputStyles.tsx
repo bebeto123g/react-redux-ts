@@ -7,7 +7,6 @@ export const InputStyles = styled.input<{error: boolean}>`
     font-weight: 400;
     line-height: 24px;
     padding: 12px 16px;
-    color: #0e0e0f;
     border: 1px solid ${(props) => (props.error ? '#aa0000' : '#C4C8D0')};
     outline: none;
     border-radius: 4px;

@@ -8,7 +8,6 @@ export const LabelStyle = styled.label`
     font-weight: 600;
     line-height: 24px;
     margin-bottom: 8px;
-    color: #0e0e0f;
     display: block;
 `;
 

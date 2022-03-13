@@ -2,6 +2,7 @@ import React, { FocusEventHandler, FormEventHandler, useState } from 'react';
 import InputBlock from '../../UX/Input/InputBlock';
 import { UserType } from '../../../types';
 import RadioList from '../../UI/Radio/RadioList';
+import RadioInput from '../../UI/Radio/RadioInput';
 
 const initFormState = {
     name: '',
@@ -78,7 +79,14 @@ const ReceptionForm = () => {
                 }}
             />
 
-            <RadioList label="Заявление подаёт" />
+            <RadioList label="Заявление подаёт">
+                <RadioInput id="individual" name="reception-radio">
+                    Физическе лицо
+                </RadioInput>
+                <RadioInput id="entity" name="reception-radio">
+                    Юридическое лицо
+                </RadioInput>
+            </RadioList>
         </form>
     );
 };
