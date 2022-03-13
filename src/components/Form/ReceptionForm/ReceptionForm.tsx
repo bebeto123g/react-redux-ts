@@ -1,8 +1,9 @@
 import React, { FocusEventHandler, FormEventHandler, useState } from 'react';
-import InputBlock from '../../UX/Input/InputBlock';
+import InputBlock from '../../UI/Input/InputBlock';
 import { UserType } from '../../../types';
 import RadioList from '../../UI/Radio/RadioList';
 import RadioInput from '../../UI/Radio/RadioInput';
+import Checkbox from '../../UI/Checkbox/Checkbox';
 
 const initFormState = {
     name: '',
@@ -87,6 +88,8 @@ const ReceptionForm = () => {
                     Юридическое лицо
                 </RadioInput>
             </RadioList>
+
+            <Checkbox />
         </form>
     );
 };

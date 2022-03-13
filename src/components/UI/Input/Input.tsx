@@ -7,15 +7,18 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 import { InputStyles } from './inputStyles';
+
+export type InputTypeProp = 'text' | 'email' | 'tel' | 'number';
 
 export interface InputPropsType extends InputHTMLAttributes<HTMLInputElement> {
     handler: FocusEventHandler<HTMLInputElement>;
     error: boolean;
+    type?: InputTypeProp;
 }
 
-const Input: FC<InputPropsType> = ({ handler, value, error = false, ...props }) => {
+const Input: FC<InputPropsType> = ({ type, handler, value, error = false, ...props }) => {
     const [stateValue, setStateValue] = useState('');
 
     const inputEl = useRef<HTMLInputElement>(null);
@@ -44,6 +47,7 @@ const Input: FC<InputPropsType> = ({ handler, value, error = false, ...props }) 
     return (
         <InputStyles
             {...props}
+            type={type}
             defaultValue={value}
             onBlur={checkChange}
             onKeyUp={pressEnter}

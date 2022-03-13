@@ -1,16 +1,20 @@
 import React, { FC, FocusEventHandler, InputHTMLAttributes } from 'react';
 import { css } from '@emotion/css';
 
-import Label from '../../UI/Input/Label';
-import Input from '../../UI/Input/Input';
-import InputError from '../../UI/Input/Error';
+import Label from './Label';
+import Input, { InputTypeProp } from './Input';
+import InputError from './Error';
+
+interface InputBlockNativePropsType extends InputHTMLAttributes<HTMLInputElement> {
+    type?: InputTypeProp
+}
 
 interface InputBlockProps {
     label?: string;
     error: boolean;
     textError?: string;
     id: string | number;
-    inputProps: InputHTMLAttributes<HTMLInputElement>;
+    inputProps: InputBlockNativePropsType;
     handler: FocusEventHandler<HTMLInputElement>;
 }
 

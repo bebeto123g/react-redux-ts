@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, InputHTMLAttributes } from 'react';
 import { css } from '@emotion/css';
 
 const labelStyle = css`
@@ -32,15 +32,12 @@ const labelStyle = css`
     }
 `;
 
-interface RadioInputPropsType {
-    id: string;
-    name: string;
-}
+type RadioInputPropsType = Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>
 
-const RadioInput: FC<RadioInputPropsType> = ({ id, name, children }) => {
+const RadioInput: FC<RadioInputPropsType> = ({ children, ...props }) => {
     return (
         <label className={labelStyle}>
-            <input type="radio" name={name} id={String(id)} />
+            <input {...props} id={String(props.id)} type="radio"  />
             <span />
             <span>{children}</span>
         </label>
