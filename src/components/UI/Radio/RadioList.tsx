@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { AllHTMLAttributes, FC } from 'react';
 import { css } from '@emotion/css';
 import { LabelStyle } from '../Input/Label';
 import { EmotionCssClassNameType } from '../../../types';
 
-interface RadioListPropsType {
+interface RadioListPropsType extends AllHTMLAttributes<HTMLDivElement>  {
     className?: EmotionCssClassNameType;
     label?: string;
 }
@@ -22,9 +22,9 @@ const stylesWrapper = css`
     }
 `;
 
-const RadioList: FC<RadioListPropsType> = ({ label, className, children }) => {
+const RadioList: FC<RadioListPropsType> = ({ label, className, children, ...props }) => {
     return (
-        <div className={className}>
+        <div {...props} className={className}>
             <div className={stylesWrapper}>
                 {label && <LabelStyle as={'div'}>{label}</LabelStyle>}
                 {children}

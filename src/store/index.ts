@@ -1,9 +1,9 @@
 import { combineReducers,  createStore } from 'redux';
 import { TypedUseSelectorHook, useSelector, useDispatch } from 'react-redux';
 
-import { usersReducer as users } from './users/reducer';
+import { formReducer as form } from './form/reducer';
 
-const rootReducer = combineReducers({  users });
+const rootReducer = combineReducers({ form });
 
 export type RootReducerType = typeof rootReducer;
 export type RootStateType = ReturnType<RootReducerType>;
