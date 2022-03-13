@@ -10,7 +10,6 @@
     transition: box-shadow .2s, background-color 0.5s;
     color: white;
     text-shadow: 0 0 4px gray;
-    box-shadow: 0 0 4px 0 $secondary;
     font-size: 16px;
     text-decoration: none;
     @include btn-variant($secondary);
@@ -46,7 +45,11 @@
     }
 
     &-lg {
-        padding: $indent * 1.2 $indent * 2.5;
+        padding: $indent * 1.5 $indent * 4;
         font-size: 18px;
+    }
+
+    &-full-width {
+        width: 100%;
     }
 }

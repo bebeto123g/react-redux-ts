@@ -2,10 +2,10 @@ import React from 'react';
 import PageTitle from '../components/UI/Typography/PageTitle';
 import ButtonLink from '../components/UI/Button/ButtonLink';
 
-const ProfileEdit = () => {
+const Terms = () => {
     return (
         <>
-            <PageTitle>Редактируем профиль тут</PageTitle>
+            <PageTitle>Условия предоставления услуги</PageTitle>
             <ButtonLink to={'/'} variant="danger">
                 Вернуться к заполненю формы
             </ButtonLink>
@@ -13,4 +13,4 @@ const ProfileEdit = () => {
     );
 };
 
-export default ProfileEdit;
+export default Terms;

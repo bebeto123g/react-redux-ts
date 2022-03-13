@@ -1,9 +1,23 @@
-import React, { FocusEventHandler, FormEventHandler, useState } from 'react';
+import React, { FocusEventHandler, FormEventHandler, MouseEventHandler, useState } from 'react';
 import InputBlock from '../../UI/Input/InputBlock';
 import { UserType } from '../../../types';
 import RadioList from '../../UI/Radio/RadioList';
 import RadioInput from '../../UI/Radio/RadioInput';
-import Checkbox from '../../UI/Checkbox/Checkbox';
+import CheckboxInput from '../../UI/Checkbox/CheckboxInput';
+import { css } from '@emotion/css';
+import { Link } from 'react-router-dom';
+import Button from '../../UI/Button/Button';
+
+const stylesInputBlock = css`
+    margin-bottom: 32px;
+`;
+const stylesCheckboxBlock = css`
+    margin-bottom: 32px;
+
+    label {
+        margin-bottom: 16px;
+    }
+`;
 
 const initFormState = {
     name: '',
@@ -47,6 +61,7 @@ const ReceptionForm = () => {
                 textError="От 5 до 40 символов"
                 error={true}
                 handler={handlerFormName}
+                className={stylesInputBlock}
                 inputProps={{
                     placeholder: 'Введите имя',
                     type: 'text',
@@ -61,6 +76,7 @@ const ReceptionForm = () => {
                 textError="Введите почту"
                 error={true}
                 handler={handlerFormEmail}
+                className={stylesInputBlock}
                 inputProps={{
                     placeholder: 'Введите email',
                     type: 'email',
@@ -71,6 +87,7 @@ const ReceptionForm = () => {
                 id="Reception-Form-Phone"
                 label="Телефон"
                 textError="Неверный формат телефона"
+                className={stylesInputBlock}
                 error={true}
                 handler={handlerFormPhone}
                 inputProps={{
@@ -80,8 +97,8 @@ const ReceptionForm = () => {
                 }}
             />
 
-            <RadioList label="Заявление подаёт">
-                <RadioInput id="individual" name="reception-radio">
+            <RadioList label="Заявление подаёт" className={stylesInputBlock}>
+                <RadioInput id="individual" name="reception-radio" defaultChecked={true}>
                     Физическе лицо
                 </RadioInput>
                 <RadioInput id="entity" name="reception-radio">
@@ -89,7 +106,16 @@ const ReceptionForm = () => {
                 </RadioInput>
             </RadioList>
 
-            <Checkbox />
+            <div className={stylesCheckboxBlock}>
+                <CheckboxInput>
+                    Я принимаю <Link to={'/terms'}>условия предоставления услуги.</Link>
+                </CheckboxInput>
+                <CheckboxInput>Я даю разрешение на обработку персональных данных.</CheckboxInput>
+            </div>
+
+            <Button callback={() => console.log('submit')} size="lg" variant="primary">
+                Продолжить
+            </Button>
         </form>
     );
 };

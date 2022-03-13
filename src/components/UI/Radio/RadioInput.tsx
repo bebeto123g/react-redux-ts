@@ -27,7 +27,7 @@ const labelStyle = css`
         height: 20px;
         margin-right: 12px;
         border-radius: 50%;
-        border: 1px solid #c4c8d0;
+        border: 1px solid #C4C8D0;
         transition: box-shadow 0.3s;
     }
 `;

@@ -23,5 +23,9 @@ export const routes: Array<RouteType> = [
         path: '/profile-edit',
         Element: lazy(() => import('../views/ProfileEdit')),
         isAuth: false,
+    },    {
+        path: '/terms',
+        Element: lazy(() => import('../views/Terms')),
+        isAuth: false,
     },
 ];

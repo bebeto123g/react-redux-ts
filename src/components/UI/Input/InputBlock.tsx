@@ -1,9 +1,9 @@
 import React, { FC, FocusEventHandler, InputHTMLAttributes } from 'react';
-import { css } from '@emotion/css';
 
 import Label from './Label';
 import Input, { InputTypeProp } from './Input';
 import InputError from './Error';
+import { EmotionCssClassNameType } from '../../../types';
 
 interface InputBlockNativePropsType extends InputHTMLAttributes<HTMLInputElement> {
     type?: InputTypeProp
@@ -16,11 +16,8 @@ interface InputBlockProps {
     id: string | number;
     inputProps: InputBlockNativePropsType;
     handler: FocusEventHandler<HTMLInputElement>;
+    className?: EmotionCssClassNameType
 }
-
-const styles = css(`
-    margin-bottom: 32px;
-`);
 
 const InputBlock: FC<InputBlockProps> = ({
     handler,
@@ -29,9 +26,10 @@ const InputBlock: FC<InputBlockProps> = ({
     textError,
     error,
     inputProps = { type: 'text' },
+    className
 }) => {
     return (
-        <div className={styles}>
+        <div className={className}>
             {label && <Label htmlFor={String(id)}>{label}</Label>}
             {error && <InputError>{textError}</InputError>}
             <Input {...inputProps} error={error} handler={handler} id={String(id)} />

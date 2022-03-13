@@ -1,20 +1,20 @@
-import React, { FC } from 'react';
+import React, { ButtonHTMLAttributes, FC } from 'react';
 
-export type ButtonPropsTypes = {
+//bootstrap style
+export interface ButtonPropsType extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'danger' | 'info' | 'warning' | 'primary';
     size?: 'sm' | 'lg';
-    callback: () => void;
+    callback?: () => void;
     classNames?: string;
-    disabled?: boolean;
-};
+}
 
-const Button: FC<ButtonPropsTypes> = ({
+const Button: FC<ButtonPropsType> = ({
     variant,
     size,
-    disabled = false,
     children,
     classNames,
     callback,
+    ...props
 }) => {
     const variantClass = variant ? ` btn-${variant}` : '';
     const sizeClass = size ? ` btn-${size}` : '';
@@ -22,9 +22,9 @@ const Button: FC<ButtonPropsTypes> = ({
 
     return (
         <button
-            className={`btn${variantClass}${sizeClass}${propClasses}`}
-            onClick={() => callback()}
-            disabled={disabled}
+            {...props}
+            className={`btn${variantClass}${sizeClass} ${propClasses}`}
+            onClick={callback}
         >
             {children}
         </button>
