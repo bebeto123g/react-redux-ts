@@ -1,7 +1,7 @@
 import React from 'react';
+import { css } from '@emotion/css';
 import SwitchRoutes from './routes/SwitchRoutes';
 import './styles/common.scss';
-import { css } from '@emotion/css';
 import Container from './components/UI/Continer';
 
 const styles = css(`

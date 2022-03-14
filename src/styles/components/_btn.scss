@@ -29,10 +29,12 @@
 
     &-info {
         @include btn-variant($info);
+        color: #0E0E0F;
     }
 
     &-warning {
         @include btn-variant($warning);
+        color: #0E0E0F;
     }
 
     &-primary {

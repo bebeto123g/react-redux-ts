@@ -36,11 +36,19 @@ export const setFormUserType = (userType: UserType) => {
 };
 
 export const setFormIsAgree = (isAgree: boolean) => {
-    return { type: FormTypes.SET_USER_AGREE, isAgree };
+    return { type: FormTypes.SET_SERVICE_AGREE, isAgree };
 };
 
 export const setFormIsProcessingData = (isProcessingData: boolean) => {
-    return { type: FormTypes.SET_USER_PROCESSING, isProcessingData };
+    return { type: FormTypes.SET_PROCESSING_DATA, isProcessingData };
+};
+
+export const submitForm = () => {
+    return { type: FormTypes.ACTION_FORM_SUBMIT };
+};
+
+export const clearForm = () => {
+    return { type: FormTypes.CLEAR_FORM };
 };
 
 export default {
@@ -50,4 +58,6 @@ export default {
     setFormUserType,
     setFormIsAgree,
     setFormIsProcessingData,
+    submitForm,
+    clearForm,
 };
