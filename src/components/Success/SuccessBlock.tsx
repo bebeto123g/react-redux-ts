@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { css } from '@emotion/css';
 import { useAppSelector } from '../../store';
 import { LabelStyle } from '../UI/Input/Label';
