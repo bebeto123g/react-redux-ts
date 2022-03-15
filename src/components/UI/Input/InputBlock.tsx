@@ -1,5 +1,4 @@
 import React, { FC, FocusEventHandler, InputHTMLAttributes } from 'react';
-
 import Label from './Label';
 import Input, { InputTypeProp } from './Input';
 import InputError from './Error';
@@ -11,7 +10,7 @@ interface InputBlockNativePropsType extends InputHTMLAttributes<HTMLInputElement
 
 interface InputBlockProps {
     label?: string;
-    error: boolean;
+    error?: boolean;
     textError?: string;
     id: string | number;
     inputProps: InputBlockNativePropsType;
@@ -24,8 +23,8 @@ const InputBlock: FC<InputBlockProps> = ({
     id,
     label,
     textError,
-    error,
-    inputProps = { type: 'text' },
+    error = false,
+    inputProps,
     className
 }) => {
     return (

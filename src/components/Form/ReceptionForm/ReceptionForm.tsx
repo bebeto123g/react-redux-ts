@@ -18,7 +18,7 @@ const ReceptionForm = () => {
             <ReceptionFormPhone />
             <ReceptionFormUserType />
             <ReceptionFormAdditional />
-            <Button callback={() => console.log('submit')} size="lg" variant="primary">
+            <Button size="lg" variant="primary">
                 Продолжить
             </Button>
         </form>

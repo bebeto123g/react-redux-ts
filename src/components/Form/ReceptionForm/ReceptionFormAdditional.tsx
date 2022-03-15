@@ -14,7 +14,8 @@ const styles = css`
 `;
 
 const ReceptionFormAdditional = () => {
-    const { isAgree, isProcessingData } = useAppSelector((state) => state.form);
+    const isAgree = useAppSelector((state) => state.form.isAgree);
+    const isProcessingData = useAppSelector((state) => state.form.isProcessingData);
     const dispatch = useAppDispatch();
 
     const handlerIsAgree: ChangeEventHandler<HTMLInputElement> = (e) => {

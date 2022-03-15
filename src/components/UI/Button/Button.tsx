@@ -4,28 +4,15 @@ import React, { ButtonHTMLAttributes, FC } from 'react';
 export interface ButtonPropsType extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'danger' | 'info' | 'warning' | 'primary';
     size?: 'sm' | 'lg';
-    callback?: () => void;
-    classNames?: string;
 }
 
-const Button: FC<ButtonPropsType> = ({
-    variant,
-    size,
-    children,
-    classNames,
-    callback,
-    ...props
-}) => {
+const Button: FC<ButtonPropsType> = ({ variant, size, children, className, ...props }) => {
     const variantClass = variant ? ` btn-${variant}` : '';
     const sizeClass = size ? ` btn-${size}` : '';
-    const propClasses = classNames ? ` ${classNames}` : '';
+    const propClasses = className ? ` ${className}` : '';
 
     return (
-        <button
-            {...props}
-            className={`btn${variantClass}${sizeClass} ${propClasses}`}
-            onClick={callback}
-        >
+        <button {...props} className={`btn${variantClass}${sizeClass}${propClasses}`}>
             {children}
         </button>
     );

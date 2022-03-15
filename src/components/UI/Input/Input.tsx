@@ -19,7 +19,6 @@ export const InputStyles = styled.input<{error: boolean}>`
     border-radius: 4px;
 `;
 
-
 export type InputTypeProp = 'text' | 'email' | 'tel' | 'number';
 
 export interface InputPropsType extends InputHTMLAttributes<HTMLInputElement> {
@@ -28,7 +27,7 @@ export interface InputPropsType extends InputHTMLAttributes<HTMLInputElement> {
     type?: InputTypeProp;
 }
 
-const Input: FC<InputPropsType> = ({ type, handler, value, error = false, ...props }) => {
+const Input: FC<InputPropsType> = ({ type = 'text', handler, value, error = false, ...props }) => {
     const [stateValue, setStateValue] = useState('');
 
     const inputEl = useRef<HTMLInputElement>(null);

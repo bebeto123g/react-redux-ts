@@ -1,20 +1,18 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, LinkProps } from 'react-router-dom';
 
-interface ButtonLinkPropsTypes {
+interface ButtonLinkPropsTypes extends LinkProps {
     variant?: 'danger' | 'info' | 'warning' | 'primary';
     size?: 'sm' | 'lg';
-    classNames?: string;
-    to: string;
 }
 
-const ButtonLink: FC<ButtonLinkPropsTypes> = ({ variant, size, children, classNames, to }) => {
+const ButtonLink: FC<ButtonLinkPropsTypes> = ({ variant, size, children, className, ...props }) => {
     const variantClass = variant ? ` btn-${variant}` : '';
     const sizeClass = size ? ` btn-${size}` : '';
-    const propClasses = classNames ? ` ${classNames}` : '';
+    const propClasses = className ? ` ${className}` : '';
 
     return (
-        <Link to={to} className={`btn${variantClass}${sizeClass} ${propClasses}`}>
+        <Link {...props} className={`btn${variantClass}${sizeClass}${propClasses}`}>
             {children}
         </Link>
     );

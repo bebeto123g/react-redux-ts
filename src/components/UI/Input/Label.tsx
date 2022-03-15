@@ -11,8 +11,8 @@ export const LabelStyle = styled.label`
     display: block;
 `;
 
-const Label: FC<LabelHTMLAttributes<HTMLLabelElement>> = ({ children, htmlFor = '' }) => {
-    return <LabelStyle htmlFor={htmlFor}>{children}</LabelStyle>;
+const Label: FC<LabelHTMLAttributes<HTMLLabelElement>> = ({ children, ...props }) => {
+    return <LabelStyle {...props}>{children}</LabelStyle>;
 };
 
 export default Label;
