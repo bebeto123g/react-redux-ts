@@ -1,4 +1,4 @@
-import { FocusEventHandler, useCallback, useEffect, useState } from 'react';
+import { FocusEventHandler, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../store';
 import { setFormName, setFormPhone, setFormEmail } from '../store/form/actions';
 
@@ -12,7 +12,6 @@ type UseFormInputType = keyof typeof actionsUseFormInput;
 
 export const useFormInput = (type: UseFormInputType) => {
     const { value, validate } = useAppSelector((state) => state.form[type]);
-
     const dispatch = useAppDispatch();
     const [error, setError] = useState(false);
 
@@ -20,11 +19,11 @@ export const useFormInput = (type: UseFormInputType) => {
         dispatch(actionsUseFormInput[type](e.target.value));
     };
 
-    const clearError = useCallback(() => {
+    const clearError = () => {
         if (error) {
             setError(false);
         }
-    }, [error]);
+    }
 
     useEffect(() => {
         if (!value) {
@@ -35,7 +34,7 @@ export const useFormInput = (type: UseFormInputType) => {
         if (!validate) {
             setError(true);
         }
-    }, [validate, value, clearError]);
+    }, [validate, value]);
 
     return { value, error, clearError, handler };
 };
